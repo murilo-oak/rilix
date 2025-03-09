@@ -9,7 +9,7 @@ using static Dreamteck.Splines.LengthCalculator;
 
 namespace RilixHalloweenChallenge
 {
-    public class PlayerDashboardController : MonoBehaviour
+    public class RollerCoasterDashboard : MonoBehaviour
     {
         [SerializeField] SplineFollower _splineFollower;
         [SerializeField] LengthCalculator _lengthCalculator;
