@@ -123,13 +123,21 @@ namespace RilixHalloweenChallenge
 
         private void OnDisable()
         {
-            _tokenSource.Cancel();
-            _tokenSource.Dispose();
+            CleanupToken();
         }
         private void OnDestroy()
         {
-            _tokenSource.Cancel();
-            _tokenSource.Dispose();
+            CleanupToken();
+        }
+
+        private void CleanupToken()
+        {
+            if (_tokenSource != null && !_tokenSource.IsCancellationRequested)
+            {
+                _tokenSource.Cancel();
+            }
+            _tokenSource?.Dispose();
+            _tokenSource = null;
         }
     }
 
